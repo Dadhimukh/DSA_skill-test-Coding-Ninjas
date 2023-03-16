@@ -1,0 +1,33 @@
+public class Solution {
+	public static String amazingStrings(String first, String second,String third) {
+		// Write your code here.
+		int s1[] = new int[26];
+        int s2[] = new int[26];
+        int s3[] = new int[26];
+        
+        for (int i = 0; i < first.length(); i++) {
+            
+            s1[first.charAt(i) - 'A'] += 1;
+        }
+        
+        for (int i = 0; i < second.length(); i++) {
+            s2[second.charAt(i) - 'A'] += 1;
+        }
+        
+        for (int i = 0; i < third.length(); i++) {
+            s3[third.charAt(i) - 'A'] += 1;
+        }
+        
+    
+        for (int i = 0; i < 26; i++) {
+            
+            if (s1[i] + s2[i] != s3[i]) {
+                
+                return "NO";
+            }
+        }
+        
+        return "YES";
+    
+	}
+}
