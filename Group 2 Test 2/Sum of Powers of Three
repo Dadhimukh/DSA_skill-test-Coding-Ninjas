@@ -1,0 +1,21 @@
+import java.util.*;
+class Solution {
+    static public boolean checkPowersOfThree(int n) {
+        
+        // Write your code here
+        TreeSet<Double> set = new TreeSet<>(Comparator.reverseOrder());
+        for (int i = 0; Math.pow(3, i) <= n; i++)
+            set.add(Math.pow(3, i));
+
+        int size = set.size();
+        for (int i = 0; i < size; i++) {
+            Double aDouble = set.pollFirst();
+            if (n >= aDouble) {
+                n -= aDouble;
+            }
+        }
+
+        return n == 0;
+        
+    }
+}
